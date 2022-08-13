@@ -1,0 +1,4 @@
+pkg
+*.o
+pkg_root/root/bin/pkg
+pkg.tar.gz

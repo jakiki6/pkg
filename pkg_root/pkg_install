@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ -f $PKG_PREFIX/usr/bin/pkg ]; then
+	echo "Old installation detected: moving $PKG_PREFIX/usr/bin/pkg to $PKG_PREFIX/usr/bin/pkg.old"
+	mv $PKG_PREFIX/usr/bin/pkg $PKG_PREFIX/usr/bin/pkg.old
+fi
+
+source ./root/usr/share/pkg/utils.sh
+simple_install
+
+if [ -f $PKG_PREFIX/usr/bin/pkg.old ]; then
+	echo "Removing $PKG_PREFIX/usr/bin/pkg.old"
+	rm $PKG_PREFIX/usr/bin/pkg.old
+fi
